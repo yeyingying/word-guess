@@ -1,0 +1,58 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Puzzle Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+<script src="logic.js"></script>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Coding BootCamp - Word Guess</h1>
+        <h3>Guess the name of the major house.</h3>
+        <p>When you play the game of word guess, you win or you ... start over.</p>
+        <span>Press any letter key to begin.</span>
+    </div>
+</div>
+
+<div class="container">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <h2>Word to Guess</h2>
+        </li>
+        <li class="list-group-item">
+            <h5 id="puzzle-state"></h5>
+        </li>
+        <li class="list-group-item">
+            <h5>Wrong Guesses:  <span id="wrong-guesses"></span></h5>
+        </li>
+        <li class="list-group-item">
+            <h5>Wrong Guesses Left: <span id="guesses-left"></span></h5>
+        </li>
+        <li class="list-group-item"><h5>Wins: <span id="win-counter"></span></h5>
+        </li>
+        <li class="list-group-item"><h5>Losses: <span id="loss-counter"></span></h5>
+        </li>
+    </ul>
+</div>
+
+<script>
+    
+    (function() {
+       
+        updateHtml(document, myGame);
+        window.addEventListener('keydown', function (e) {
+            console.log("Key was pressed: ", e.key);
+            updateRound(myGame.round, e.key);
+            startNewRound(myGame);
+            updateHtml(document, myGame);
+        });
+    })();
+</script>
+</body>
+
+</html>
